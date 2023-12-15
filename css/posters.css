@@ -108,8 +108,8 @@ dialog {
     max-width: none;
     max-height: none;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: black;
 }
 
@@ -120,15 +120,16 @@ dialog[open] {
 }
 
 dialog figure {
-    height: calc(100vh - 5rem);
-    width: calc(100vw - 5rem);
+    height: calc(100% - 5rem);
+    width: calc(100% - 5rem);
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 dialog figure img {
-    max-height: calc(100vh - 5rem);
-    max-width: calc(100vw - 5rem);
+    max-height: 100%;
+    max-width: 100%;
     margin: auto;
 }
 
@@ -147,6 +148,12 @@ dialog button {
     position: absolute;
     top: 0;
     right: 0;
+    line-height: 1em;
+    overflow: hidden;
+}
+
+dialog button:focus {
+    outline: none;
 }
 
 dialog .image-title {
