@@ -1,0 +1,32 @@
+/* https://github.com/ateliertriay/bricolage */
+
+@font-face {
+    font-family: 'Bricolage Grotesque';
+    font-weight: 300;
+    font-style: normal;
+    font-display: block;
+    /*font-variation-settings: "wght" 1000;*/
+    src: url(/fonts/BricolageGrotesque-Medium.woff2) format("woff2");
+    /*src: url(/fonts/BricolageGrotesque10pt-Light.woff2) format("woff2");*/
+    /*src: url(/fonts/BricolageGrotesque[opsz,wdth,wght].woff2) format("woff2-variations");*/
+         /*url(BricolageGrotesque-Regular.woff2) format("woff2"); /* for older browsers */
+}
+
+@font-face {
+    font-family: 'Bricolage Grotesque Condensed';
+    font-weight: 800;
+    font-style: normal;
+    font-display: block;
+    /*font-variation-settings: "wght" 1000;*/
+    src: url(/fonts/BricolageGrotesque96ptCondensed-ExtraBold.woff2) format("woff2");
+         /*url(BricolageGrotesque-Regular.woff2) format("woff2"); /* for older browsers */
+}
+
+/*@font-face {
+    font-family: 'Bricolage Grotesque';
+    font-weight: 700;
+    font-style: normal;
+    src: url(BricolageGrotesque[opsz,wdth,wght].woff2) format("woff2-variations");
+         /*url(BricolageGrotesque-Bold.woff2) format("woff2");*
+}
+*/
