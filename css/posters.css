@@ -290,6 +290,7 @@ main {
     margin-top: 1rem;
     font-size: .75em;
     width: 100%;
+    max-width: var(--column-width);
 }
 
 .image {
@@ -371,6 +372,7 @@ main {
         left: 0;
         right: 0;
         padding: 0.5rem 1rem;
+        width: 100%;
     }
 
     .poster:nth-child(even) .title {
