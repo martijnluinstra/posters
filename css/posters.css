@@ -6,16 +6,17 @@
     --grey: #999;
 }
 
+/* Use rch if supported */
 @supports(width: 55rch) {
     :root {
         --column-width: 55rch;
     }
 }
 
-/*
-  Josh's Custom CSS Reset
-  https://www.joshwcomeau.com/css/custom-css-reset/
-*/
+/*******************************************************************************
+ * Josh's Custom CSS Reset
+ * https://www.joshwcomeau.com/css/custom-css-reset/
+ ******************************************************************************/
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -40,7 +41,10 @@ p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
 }
 
-/* General declarations */
+
+/*******************************************************************************
+ * Layout
+ ******************************************************************************/
 [hidden] {
     display: none !important;
 }
@@ -50,6 +54,11 @@ html, body {
     font-family: "Bricolage Grotesque", system-ui, sans-serif;
     line-height: var(--grid);
     scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -67,7 +76,6 @@ h1 {
 
 h2 {
     font-size: 2em;
-    /*line-height: calc(2 * var(--grid));*/
 }
 
 small {
@@ -85,10 +93,10 @@ a:hover,
 a:focus {
     background: black;
     color: white;
-    text-decoration: none;
-    padding: 0 .2em;
     margin: 0 -.2em;
     outline: none;
+    padding: 0 .2em;
+    text-decoration: none;
 }
 
 figure img {
@@ -96,22 +104,29 @@ figure img {
                 .5rem .5rem 0px white;
 }
 
-body {
-    display: flex;
-    flex-flow: column nowrap;
+@media (max-height: 900px) {
+    html, body {
+        font-size: 18px;
+    }
 }
 
+
+/*******************************************************************************
+ * Dialog
+ ******************************************************************************/
 dialog {
-    border-radius: 0;
-    border: none;
-    margin: 0;
-    max-width: none;
-    max-height: none;
-    padding: 0;
     width: 100%;
     height: 100%;
-    background: black;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding-top: 0;
+    padding-right: 0;
     padding-bottom: env(safe-area-inset-bottom);
+    padding-left: 0;
+    background: black;
+    border-radius: 0;
+    border: none;
 }
 
 dialog[open] {
@@ -135,21 +150,20 @@ dialog figure img {
 }
 
 dialog button {
-    height: 2rem;
-    width: 2rem;
-    border: none;
-    cursor: pointer;
-    background: none;
-    color: inherit;
-    padding: 0;
-    color: white;
-    text-align: center;
-    margin: 0;
-    font-size: 2em;
     position: absolute;
     top: 0;
     right: 0;
-    line-height: 1em;
+    height: 2rem;
+    width: 2rem;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 2rem;
+    color: white;
+    text-align: center;
+    cursor: pointer;
     overflow: hidden;
 }
 
@@ -160,45 +174,58 @@ dialog button:focus {
 dialog .image-title {
     position: absolute;
     bottom: env(safe-area-inset-bottom);
-    color: white;
     margin: 0;
-    line-height: 1.5em;
-    font-size: .75em;
-    text-align: center;
     padding: .5rem 1rem;
+    font-size: .75em;
+    line-height: 1.5em;
+    color: white;
+    text-align: center;
 }
 
+@media (pointer: coarse) {
+    dialog button {
+        height: 2.5rem;
+        width: 2.5rem;
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+}
+
+
+/*******************************************************************************
+ * Navigation
+ ******************************************************************************/
 nav {
-    display: flex;
+    order: 9999; /* ensure it's at the bottom */
     width: 100%;
+    padding-bottom: env(safe-area-inset-bottom);
+    display: flex;
     justify-content: center;
     gap: 1em;
-    z-index: 10;
-    order: 9999;
     background: black;
     color: white;
-    padding-bottom: env(safe-area-inset-bottom);
+    z-index: 10;
 }
 
 nav button,
 nav div {
-    height: 2em;
     border: none;
+    height: 2em;
     text-align: center;
 }
 
 nav button {
     width: 2em;
-    cursor: pointer;
-    background: none;
-    color: inherit;
     margin: 0;
     padding: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 nav div {
-    line-height: 2em;
     min-width: 7em;
+    line-height: 2em;
     font-variant-numeric: tabular-nums;
 }
 
@@ -215,13 +242,24 @@ nav button:disabled {
 
 nav > a,
 nav > a:visited {
-    background: black;
-    color: white;
     min-width: 1.5em;
     display: inline-block;
+    background: black;
+    color: white;
     text-align: center;
     text-decoration: none;
 }
+
+@media (pointer: coarse) {
+    nav {
+        font-size: 1.25em;
+    }
+}
+
+
+/*******************************************************************************
+ * Poster display
+ ******************************************************************************/
 
 main {
     flex: 1 1 100vh;
@@ -319,25 +357,8 @@ main {
     transform: scale(.85) rotate(-2deg) translate(-.25rem, -.25rem);
 }
 
-
-@media (pointer: coarse) {
-    nav {
-        font-size: 1.25em;
-    }
-    dialog button {
-        height: 2.5rem;
-        width: 2.5rem;
-        font-size: 2.5em;
-    }
-}
-
-@media (max-height: 900px) {
-    html, body {
-        font-size: 18px;
-    }
-}
-
-@media ((min-height: 900px) or ((min-width: 900px) and (min-height: 630px))) and (min-aspect-ratio: 10/11) {
+/* Custom layout for wide devices taller than 900px  */
+@media (min-height: 900px) and (min-aspect-ratio: 10/11) {
     main {
         scroll-snap-type: y mandatory;
     }
