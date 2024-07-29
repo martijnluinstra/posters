@@ -104,6 +104,9 @@ figure img {
                 .5rem .5rem 0px white;
 }
 
+/* Make sure font-size is always at least 18px.
+ * (2vh == 18px at height == 900px)
+ */
 @media (max-height: 900px) {
     html, body {
         font-size: 18px;
@@ -358,7 +361,7 @@ main {
 }
 
 /* Custom layout for wide devices taller than 900px  */
-@media (min-height: 900px) and (min-aspect-ratio: 10/11) {
+@media (min-height: 800px) and (min-aspect-ratio: 11/10) {
     main {
         scroll-snap-type: y mandatory;
     }
