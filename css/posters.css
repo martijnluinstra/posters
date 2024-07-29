@@ -360,8 +360,13 @@ main {
     transform: scale(.85) rotate(-2deg) translate(-.25rem, -.25rem);
 }
 
-/* Custom layout for wide devices taller than 900px  */
-@media (min-height: 800px) and (min-aspect-ratio: 11/10) {
+/* Custom layout for wide devices taller than 700px and wide-ish devices taller
+ * than 900px
+ */
+@media
+    ((min-height: 700px) and (min-aspect-ratio: 3/2)),
+    ((min-height: 900px) and (min-aspect-ratio: 10/11))
+{
     main {
         scroll-snap-type: y mandatory;
     }
